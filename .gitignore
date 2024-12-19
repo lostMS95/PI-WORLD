@@ -69,6 +69,7 @@ Temporary Items
 
 ### Secret files ###
 /backend/src/main/resources/application-*.yml
+/backend/src/main/resources/application.properties
 /backend/**/.env
 
 ### log files ###
