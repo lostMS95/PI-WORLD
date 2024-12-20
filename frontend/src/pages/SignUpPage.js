@@ -4,7 +4,7 @@ import axios from 'axios';
 function SignUpPage() {
     const [formData, setFormData] = useState({
         username: '',
-        email: '',
+        phoneNumber: '',
         password: '',
         confirmPassword: '',
     });
@@ -19,9 +19,9 @@ function SignUpPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { username, email, password, confirmPassword } = formData;
+        const { username, phoneNumber, password, confirmPassword } = formData;
 
-        if (!username || !email || !password || !confirmPassword) {
+        if (!username || !phoneNumber || !password || !confirmPassword) {
             setError('모든 필드를 입력해주세요.');
             return;
         }
@@ -59,11 +59,11 @@ function SignUpPage() {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 mb-2">이메일:</label>
+                    <label className="block text-gray-700 mb-2">전화번호:</label>
                     <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
+                        type="text"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
