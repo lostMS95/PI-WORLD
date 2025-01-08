@@ -6,11 +6,15 @@ function Header() {
         <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md sticky top-0 z-50">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 {/* Logo Section */}
-                <h1 className="text-3xl font-extrabold tracking-tight">
-                    <Link to="/" className="hover:text-yellow-300 transition duration-300">
-                        PI 코인 커뮤니티
-                    </Link>
-                </h1>
+                <div className="flex items-center space-x-4">
+                    <h1 className="text-3xl font-extrabold tracking-tight">
+                        <Link to="/" className="hover:text-yellow-300 transition duration-300">
+                            PI WORLD
+                        </Link>
+                    </h1>
+                    {/* SVG Image */}
+
+                </div>
 
                 {/* Navigation Section */}
                 <nav>
