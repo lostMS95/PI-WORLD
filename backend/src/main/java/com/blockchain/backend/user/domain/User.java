@@ -1,4 +1,4 @@
-package com.blockchain.backend.entity;
+package com.blockchain.backend.user.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,6 +22,9 @@ public class User {
 
     @Column(nullable = false, unique = true, length = 15)
     private String phoneNumber;               // 전화번호
+
+    @Column(nullable = false, unique = true, length = 255)
+    private String email;                     // 이메일
 
     @Column(nullable = false)
     private Boolean isActive = true;          // 계정 활성화 여부
