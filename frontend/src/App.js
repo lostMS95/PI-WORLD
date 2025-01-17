@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
 
-// 게시판 관련 페이지 추가
-import BoardList from './pages/BoardList';
-import BoardDetail from './pages/BoardDetail';
-import BoardWrite from './pages/BoardWrite';
+import HomePage from './pages/home/HomePage';
+import LoginPage from './pages/login/LoginPage';
+import SignUpPage from './pages/signup/SignUpPage';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import BoardList from './pages/board/BoardList';
+import BoardDetail from './pages/board/BoardDetail';
+import BoardWrite from './pages/board/BoardWrite';
+
+import Header from './components/common/header/Header';
+import Footer from './components/common/footer/Footer';
 
 function App() {
     return (
@@ -21,8 +21,6 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<SignUpPage />} />
-
-                    {/* 게시판 관련 라우트 추가 */}
                     <Route path="/board" element={<BoardList />} />
                     <Route path="/board/:id" element={<BoardDetail />} />
                     <Route path="/board/new" element={<BoardWrite />} />
