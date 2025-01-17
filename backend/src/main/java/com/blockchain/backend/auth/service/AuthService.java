@@ -22,16 +22,24 @@ public class AuthService {
     private final UserRepository userRepository;
 
     public String login(LoginRequest loginRequest) {
+        // 인증 수행 - 실패시 AuthenticationException 발생
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getEmail(),
+                        loginRequest.getUsername(),
                         loginRequest.getPassword()
                 )
         );
 
-        User user = userRepository.findByEmail(loginRequest.getEmail())
+        // 인증 성공시 SecurityContext에 저장
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        // JWT 토큰 생성 및 반환
+        // UserDetails에서 바로 정보를 가져올 수 있음
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+        User user = userRepository.findByUsername(userDetails.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        return jwtTokenProvider.createToken(user.getEmail(), user.getRole());
+        return jwtTokenProvider.createToken(user.getUsername(), user.getRole());
     }
 }
